@@ -21,6 +21,7 @@ class Model extends EventEmitter{
                 tags: ["lavaCake", "fructe", "dupa SD si rasplata"],
                 creationDate: "Tus Apr 14 2019"
             }],
+
             newQuestion: {
                 title: "",
                 text: "",

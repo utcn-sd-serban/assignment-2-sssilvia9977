@@ -1,6 +1,8 @@
 import React from "react";
 import model from "../model/model"
-const QuestionSearchTitleList = ({ questionsByTitle,onViewDetails }) => (
+const QuestionSearchTitleList = ({ questionsByTitle }) => (
+
+
     <div >
 
 
@@ -12,51 +14,45 @@ const QuestionSearchTitleList = ({ questionsByTitle,onViewDetails }) => (
 
                     <div className="tile is-ancestor">
                         <div className="tile is-4 is-vertical is-parent">
-
-
-                            <p className="title is-1">Question</p>
-
-                            <p className="title is-2 is-spaced">Title:</p>
-                            <span className="subtitle is-3"> { questionsByTitle.title  }</span>
-                            <br />
-
-                            <p className="title is-2 is-spaced">Text:</p>
-                            <span className="subtitle is-3"> { questionsByTitle.text }</span>
-                            <br />
-                            <br />
-
-                            <p className="title is-2 is-spaced">Creation date:</p>
-                            <span className="subtitle is-3"> { questionsByTitle.creationDate}</span>
-                            <br />
-                            <br />
-
-
-
-                            <div>
-
-                                <div className="tags">
-                                    {
-                                        questionsByTitle.tags.map((tag, index) => (
-                                            <li key = {index}>
-                                                {
-
-                                                    <span className="tag is-warning is-large" > {tag}  </span>
-
-                                                }
-                                            </li>
-                                        ))
-                                    }
-
-
-                                </div>
-
-
+                            <div className="tile is-child ">
+                                <p className="title">Searched by TITLE</p>
 
                             </div>
 
 
+                        </div>
+                        <div className="tile is-parent">
+                            <div className="tile is-child ">
+
+                                <table className="table  is-striped " >
+                                    <thead>
+                                    <tr>
+                                        <th>IdQ</th>
+                                        <th>User</th>
+                                        <th>Title</th>
+                                        <th>Question</th>
+                                        <th>Date</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    {
+                                        questionsByTitle.map((question, index) => (    //here i could pass the id of the question/answer
+                                            <tr key={index}>
+                                                <td>{question.idQuestion}</td>
+                                                <td>{question.user}</td>
+                                                <td>{question.title}</td>
+                                                <td>{question.text}</td>
+                                                <td>{question.creationDate}</td>
+                                            </tr>
+                                        ))
+                                    }
+                                    </tbody>
+                                </table>
 
 
+
+                            </div>
                         </div>
                     </div>
 
@@ -70,16 +66,7 @@ const QuestionSearchTitleList = ({ questionsByTitle,onViewDetails }) => (
 
 
 
-
-
-
-
-
-
     </div>
-
-
-
 
 );
 

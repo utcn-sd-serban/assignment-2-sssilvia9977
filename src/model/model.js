@@ -21,6 +21,7 @@ class Model extends EventEmitter{
                 tags: ["lavaCake", "fructe", "dupa SD si rasplata"],
                 creationDate: "Tus Apr 14 2019"
             }],
+
             newQuestion: {
                 title: "",
                 text: "",
@@ -28,7 +29,7 @@ class Model extends EventEmitter{
                 creationDate: ""
             },
 
-            questionsByTitle: {},
+            questionsByTitle: [],
             questionsByTags:[] ,
             searchedTitle: "",
             idQuestionRemember: 2
@@ -95,7 +96,7 @@ class Model extends EventEmitter{
 
         this.state = {
             ...this.state,
-            questionsByTitle : this.state.questions.find( x => x.title === this.state.searchedTitle.searchedTitle)
+            questionsByTitle : this.state.questions.filter( x => x.title == (this.state.searchedTitle.searchedTitle)  )
         };
         this.emit("change", this.state);
 
